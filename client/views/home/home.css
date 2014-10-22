@@ -1,0 +1,19 @@
+/*****************************************************************************/
+/* Home: Style */
+/*****************************************************************************/
+.overlay {
+	background-color: rgba(0, 0, 0, 0.4);
+	color: whitesmoke !important;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	z-index: -100;
+	-webkit-transition: z-index 1s, opacity 0.5s;
+	transition: z-index 1s, opacity 0.5s;
+}
+
+.overlay.visible {
+	opacity: 0.5;
+	z-index: 100;
+}

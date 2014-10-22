@@ -1,0 +1,1 @@
+Dumb = new DumbCollection('dumb');

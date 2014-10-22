@@ -1,0 +1,43 @@
+<template name="Home">
+	<div class="uk-height-1-1 uk-text-center">
+		<div class="uk-height-1-1 uk-vertical-align uk-container-center uk-width-large-1-1">
+			<div class="uk-vertical-align-middle">
+				<h3>Server Collection Count: {{server_count}}</h3>
+				<h5>Note that this <strong>would not</strong> normally be available using Dumb-Collections!</h5>
+				<h3>Client Collection Count: {{client_count}}</h3>
+				<h5>The buttons below insert and remove docs on the server using Meteor.methods:</h5>
+				<button class="uk-button uk-button-large uk-button-success" type="button" data-action="insert-doc">Insert Doc</button>
+				<button class="uk-button uk-button-large uk-button-danger" type="button" data-action="remove-doc">Remove Doc</button>
+				<button class="uk-button uk-button-large uk-button-primary" type="button" data-action="sync">Sync!</button>
+				<button class="uk-button uk-button-large" type="button" data-action="clear">Clear Client</button>
+				<div class="uk-panel uk-panel-box uk-panel-box-primary uk-margin-top">
+					<h3 class="uk-panel-title">Synchronisation Status: 
+					<strong class="{{#if synced}}uk-text-success{{else}}uk-text-warning{{/if}}">
+						{{#if synced}}
+							Synced
+						{{else}}
+							Not Synced
+						{{/if}}
+					</strong>
+					</h3>
+					{{#if storage_full}}
+						<h4 class="uk-text-warning">Local Storage is full!</h4>
+					{{/if}}
+				</div>
+				<p class="uk-margin-top">
+				The link below takes you to a page that will only load once synchronisation has taken place via the Iron Router onBeforeAction and waitOn callbacks.  To get it to work properly, clear the local collection before clicking it.
+				</p>
+				<a class="uk-button uk-button-large uk-button-primary" type="button" href="/sync">waitOn Sync Page</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="uk-height-1-1 uk-text-center overlay {{#unless ready}}visible{{/unless}}">
+		<div class="uk-height-1-1 uk-vertical-align uk-container-center uk-width-large-1-1">
+			<div class="uk-vertical-align-middle">
+				<h1>Loading Collection from Local Storage...</h1>
+			</div>
+		</div>
+	</div>
+
+</template>
