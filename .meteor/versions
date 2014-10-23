@@ -48,7 +48,7 @@ reactive-dict@1.0.4
 reactive-var@1.0.3
 reload@1.1.1
 retry@1.0.1
-richsilv:dumb-collections@1.0.7
+richsilv:dumb-collections@1.0.8
 routepolicy@1.0.2
 session@1.0.3
 spacebars-compiler@1.0.3
